@@ -15,7 +15,7 @@ public class LivroDAO implements InterfaceDAO<Livro> {
 	}
 
 	@Override
-	public void cadastrar(Livro entity) {
+	public void cadastrar(Livro entity) throws Exception {
 		if(entity == null)
 			return;
 		m.persist(entity);
@@ -24,12 +24,12 @@ public class LivroDAO implements InterfaceDAO<Livro> {
 	}
 
 	@Override
-	public Livro buscar(int cd) {
+	public Livro buscar(long cd) {
 		return m.find(Livro.class, cd);				
 	}
 
 	@Override
-	public void remover(int cd) {
+	public void remover(long cd) throws Exception {
 		Livro entity = m.find(Livro.class, cd);
 		if(entity != null){
 			m.remove(entity);
@@ -39,7 +39,7 @@ public class LivroDAO implements InterfaceDAO<Livro> {
 	}
 
 	@Override
-	public void alterar(Livro entity) {
+	public void alterar(Livro entity) throws Exception {
 		if(entity == null)
 			return;
 		m.merge(entity);

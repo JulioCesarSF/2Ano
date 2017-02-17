@@ -15,7 +15,7 @@ public class EditoraDAO implements InterfaceDAO<Editora> {
 	}
 
 	@Override
-	public void cadastrar(Editora entity) {
+	public void cadastrar(Editora entity) throws Exception {
 		if(entity == null)
 			return;
 		m.getTransaction().begin();
@@ -24,12 +24,12 @@ public class EditoraDAO implements InterfaceDAO<Editora> {
 	}
 
 	@Override
-	public Editora buscar(int cd) {
+	public Editora buscar(long cd) {
 		return m.find(Editora.class, cd);	
 	}
 
 	@Override
-	public void remover(int cd) {
+	public void remover(long cd) throws Exception {
 		Editora entity = m.find(Editora.class, cd);
 		if(entity != null){
 			m.getTransaction().begin();
@@ -39,7 +39,7 @@ public class EditoraDAO implements InterfaceDAO<Editora> {
 	}
 
 	@Override
-	public void alterar(Editora entity) {
+	public void alterar(Editora entity) throws Exception {
 		if(entity == null)
 			return;
 		m.getTransaction().begin();

@@ -16,7 +16,7 @@ public class AutorDAO implements InterfaceDAO<Autor> {
 	}
 
 	@Override
-	public void cadastrar(Autor entity) {
+	public void cadastrar(Autor entity) throws Exception {
 		if(entity == null)
 			return;
 		m.getTransaction().begin();
@@ -25,12 +25,12 @@ public class AutorDAO implements InterfaceDAO<Autor> {
 	}
 
 	@Override
-	public Autor buscar(int cd) {
+	public Autor buscar(long cd) {
 		return m.find(Autor.class, cd);
 	}
 
 	@Override
-	public void remover(int cd) {
+	public void remover(long cd) throws Exception {		
 		Autor entity = m.find(Autor.class, cd);
 		if(entity != null){
 			m.getTransaction().begin();
@@ -40,7 +40,7 @@ public class AutorDAO implements InterfaceDAO<Autor> {
 	}
 
 	@Override
-	public void alterar(Autor entity) {
+	public void alterar(Autor entity) throws Exception {
 		if(entity == null)
 			return;
 		m.getTransaction().begin();
