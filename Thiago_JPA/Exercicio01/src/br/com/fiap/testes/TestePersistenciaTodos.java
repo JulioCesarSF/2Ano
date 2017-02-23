@@ -15,6 +15,12 @@ import br.com.fiap.entity.Editora;
 import br.com.fiap.entity.Livro;
 import br.com.fiap.entity.Sexo;
 
+/*
+ * Cadastro de Autor/Editora e Livro
+ * 
+ * Nos testes individuais tem todos os métodos do DAO
+ */
+
 public class TestePersistenciaTodos {
 
 	public static void main(String[] args) {

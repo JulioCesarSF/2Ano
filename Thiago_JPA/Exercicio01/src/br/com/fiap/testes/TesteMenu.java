@@ -13,6 +13,11 @@ import br.com.fiap.entity.Autor;
 import br.com.fiap.entity.Editora;
 import br.com.fiap.entity.Livro;
 
+/*
+ * SOMENTE O MENU DO LIVRO COM CADASTRO, PESQUISA E REMOÇÃO FORAM IMPLEMENTADOS
+ * Não implementei todos ... 
+ */
+
 public class TesteMenu {
 	
 	private static Scanner t;

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Aula02</string>
+    <string name="zero">0</string>
+    <string name="mais">+</string>
+    <string name="menos">-</string>
+    <string name="limpar">Limpar</string>
+</resources>

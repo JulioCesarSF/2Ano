@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Calculadora Simples</string>
+    <string name="zero">0</string>
+    <string name="soma">+</string>
+    <string name="subtracacao">-</string>
+    <string name="multiplicacao">*</string>
+    <string name="divisao">/</string>
+    <string name="btnLimpar">CE</string>
+    <string name="resultado">0,0</string>
+</resources>

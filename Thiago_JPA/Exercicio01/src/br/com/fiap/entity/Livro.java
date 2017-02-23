@@ -1,6 +1,7 @@
 package br.com.fiap.entity;
 
 import java.io.Serializable;
+import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.StringJoiner;
 
@@ -9,10 +10,20 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.PostPersist;
+import javax.persistence.PostRemove;
+import javax.persistence.PostUpdate;
 import javax.persistence.PrePersist;
+import javax.persistence.PreRemove;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+/*
+ * ISBN não é sequencia pois é um número próprio de cada livro.
+ * 
+ * 
+ */
 
 @Entity
 @Table(name = "T_LIVRO")
@@ -51,19 +62,40 @@ public class Livro implements Serializable {
 
 	@PrePersist
 	public void cadastro() {
-		System.out.println("->Efetuando cadastro [" + getClass().getName() + "]");
+		System.out.println("->Efetuando cadastro [" + getClass().getName() + "]\n");
 	}
 
 	@PostPersist
 	public void cadastroFeito() {
 		System.out.println("->Cadastrado com sucesso!");
 	}
+	
+	@PreRemove
+	public void remover(){
+		System.out.println("->Removendo cadastro [" + getClass().getName() + "]\n");
+	}
+	
+	@PostRemove
+	public void removerFeito(){
+		System.out.println("->Removido com sucesso!");
+	}
+	
+	@PreUpdate
+	public void alterar(){
+		System.out.println("->Efetuando alteração [" + getClass().getName() + "]\n");
+	}
+	
+	@PostUpdate
+	public void alterarFeito(){
+		System.out.println("->Alterado com sucesso!");
+	}
 
 	@Override
 	public String toString() {
+		DateFormat dF = DateFormat.getDateInstance();
 		return new StringJoiner("\n").add("ISBN: " + String.valueOf(this.isbn)).add("Título: " + this.titulo)
 				.add("Preço: " + String.valueOf(this.preco))
-				.add("Data Lançamento: " + this.dataLancamento.getTime().toString()).toString();
+				.add("Data Lançamento: " + dF.format(this.dataLancamento.getTime())).toString();
 	}
 
 	public long getIsbn() {
